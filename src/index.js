@@ -3,9 +3,13 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
-fetch("https://swapi.co/api/people/1/").then(res => {
-  console.log(res.status);
-});
+fetch("https://swapi.co/api/people/1/")
+  .then(res => {
+    return res.json();
+  })
+  .then(body => {
+    console.log(body);
+  });
 
 function App() {
   return (
