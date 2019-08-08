@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
+fetch("https://swapi.co/api/people/1/").then(res => {
+  console.log(res.status);
+});
+
 function App() {
   return (
     <div className="App">
