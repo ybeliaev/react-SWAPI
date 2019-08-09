@@ -3,19 +3,22 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
-const getResourse = async url => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error("Error! URL: " + url + "Error status: " + res.status);
+class SwappiService {
+  async getResourse(url) {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error("Error! URL: " + url + "Error status: " + res.status);
+    }
+
+    return await res.json();
   }
-  const body = await res.json();
-  return body;
-};
-getResourse("https://swapi.co/api/people/11111/")
-  .then(body => {
-    console.log(body);
-  })
-  .catch(err => console.log("Could not fetch" + err));
+  getAllPersons() {
+    return SwappiService(`http https://swapi.co/api/people`);
+  }
+  getPerson(id) {
+    return SwappiService(`http https://swapi.co/api/people/${id}`);
+  }
+}
 
 function App() {
   return (
