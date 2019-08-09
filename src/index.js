@@ -5,10 +5,13 @@ import "./styles.css";
 
 const getResourse = async url => {
   const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("Error! URL: " + url + "Error status: " + res.status);
+  }
   const body = await res.json();
   return body;
 };
-getResourse("https://swapi.co/api/people/1/")
+getResourse("https://swapi.co/api/people/11111/")
   .then(body => {
     console.log(body);
   })
