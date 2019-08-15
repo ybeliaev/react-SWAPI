@@ -18,22 +18,26 @@ export default class SwappiServise {
   }
   async getAllPlanets() {
     const res = await this.getResource(`/planets/`);
-    return res.results.map(this._transformPlanet);
+    return res;
+    // .results.map(this._transformPlanet)
   }
 
   async getPlanet(id) {
     const planet = await this.getResource(`/planets/${id}/`);
-    return this._transformPlanet(planet);
+    return planet;
+    // this._transformPlanet(planet)
   }
 
   async getAllStarships() {
     const res = await this.getResource(`/starships/`);
-    return res.results.map(this._transformStarship);
+    return res;
+    // .results.map(this._transformStarship)
   }
 
   async getStarship(id) {
     const starship = this.getResource(`/starships/${id}/`);
-    return this._transformStarship(starship);
+    return starship;
+    // this._transformStarship(starship)
   }
 }
 const swapi = new SwappiServise();
