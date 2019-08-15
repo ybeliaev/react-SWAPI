@@ -15,8 +15,9 @@ export default class SwapiService {
     return res.results;
   }
 
-  getPerson(id) {
-    return this.getResource(`/people/${id}/`);
+  async getPerson(id) {
+    const person = await this.getResource(`/people/${id}/`);
+    return this._transformPerson(person);
   }
 
   async getAllPlanets() {
@@ -35,7 +36,8 @@ export default class SwapiService {
   }
 
   getStarship(id) {
-    return this.getResource(`/starships/${id}/`);
+    const starship = this.getResource(`/starships/${id}/`);
+    return this._transformStarship(starship);
   }
   // в API нет id поэтому берём его из URL
   _extractId(item) {
