@@ -10,7 +10,10 @@ export default class RandomPlanet extends Component {
 
   state = {
     planet: {},
-    loading: true
+    loading: true,
+    population: null,
+    rotationPeriod: null,
+    diameter: null
   };
 
   constructor() {
