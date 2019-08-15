@@ -34,7 +34,7 @@ export default class RandomPlanet extends Component {
   }
 
   render() {
-    const { planet, loading } = this.state;
+    const { planet, loading, population, rotationPeriod, diameter } = this.state;
     const spinner = loading ? <Spinner /> : null;
     const content = !loading ? <PlanetView planet={planet} /> : null;
 
