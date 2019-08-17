@@ -1,6 +1,6 @@
 import React from "react";
 import "./spiner.css";
-const Spiner = () => {
+const Spinner = () => {
   return (
     <div className="atom-spinner">
       <div className="spinner-inner">
@@ -13,4 +13,4 @@ const Spiner = () => {
     </div>
   );
 };
-export default Spiner;
+export default Spinner;
