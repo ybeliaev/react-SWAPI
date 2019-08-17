@@ -1,7 +1,8 @@
-.atom-spinner,
+.atom-spinner {
+  display: flex;
+}
 .atom-spinner * {
   box-sizing: border-box;
-  display: flex;
 }
 
 .atom-spinner {
