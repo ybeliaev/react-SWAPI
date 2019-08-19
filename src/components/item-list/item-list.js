@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import "./item-list.css";
 import SwapiService from "../../services/swapi-service";
+import Spinner from "../spiner/spiner";
 
 export default class ItemList extends Component {
   swapiService = new SwapiService();
@@ -15,14 +16,25 @@ export default class ItemList extends Component {
       });
     });
   }
-
+  renderItems(arr) {
+    return arr.map(({ id, name }) => {
+      return (
+        <li
+          className="list-group-item"
+          key={id}
+          onClick={() => this.props.onItemSelected(id)}
+        >
+          {name}
+        </li>
+      );
+    });
+  }
   render() {
-    return (
-      <ul className="item-list list-group">
-        <li className="list-group-item">Luke Skywalker</li>
-        <li className="list-group-item">Darth Vader</li>
-        <li className="list-group-item">R2-D2</li>
-      </ul>
-    );
+    const { peoplList } = this.state;
+    if (!peoplList) {
+      return <Spinner />;
+    }
+    const items = this.renderItems(peoplList);
+    return <ul className="item-list list-group">{items}</ul>;
   }
 }
