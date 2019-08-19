@@ -24,8 +24,13 @@ export default class RandomPlanet extends Component {
 
   constructor() {
     super();
+    console.log("Вызов constructor()");
     this.updatePlanet();
-    setInterval(this.updatePlanet, 1500);
+    this.interval = setInterval(this.updatePlanet, 4500);
+  }
+
+  componentDidMount() {
+    console.log("Вызов componentDidMount()");
   }
 
   onError = err => {
@@ -56,6 +61,7 @@ export default class RandomPlanet extends Component {
   };
 
   render() {
+    console.log("Вызов render()");
     const {
       // id,
       // name,
