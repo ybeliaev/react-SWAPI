@@ -1,8 +1,14 @@
-import React, { Component } from "react";
-
+import React from "react";
+import SwapiService from "../../services/swapi-service";
 import "./person-details.css";
 
-export default class PersonDetails extends Component {
+export default class PersonDetails extends React.Component {
+  swapiService = new SwapiService();
+  state = {
+    person: null
+  };
+
+  updatePerson() {}
   render() {
     return (
       <div className="person-details card">
